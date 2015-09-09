@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Assignment #2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+    body{
+    background-color: #F8F8F8;
+}
+
+.block {
+    position:fixed;
+    top:0;
+    right:30px;
+    bottom:0;
+    left:30px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.btn {
+    margin: 15px 0;
+}</style>
+</head>
+<body>
+    <div class="text-center">
+       <h1>RAHUL RAY</h1>
+       <h2>CTG007 ID:1377</h2>
+   </div>
+    <div class="container">
+        <div class="row block">
+            <div class="col-sm-6">
+                <div>
+                    <button class="btn btn-success btn-lg btn-block active" onclick="calculator()">Calculator</button>
+                    <button class="btn btn-success btn-lg btn-block active" onclick="array()">Find out a number in the list</button>
+                    <button class="btn btn-success btn-lg btn-block active" onclick="object()">Enter your info for viewing pleasure</button>
+                    <button class="btn btn-success btn-lg btn-block active" onclick="newDoc()">Libary function of array and its properties</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    function calculator(){
+    function add(){
+      var r, range, i, result=0, num, number;
+
+      r = prompt("How many numbers you want to add?");
+      range = parseInt(r);
+
+      if(isNaN(range)){
+        return 1;
+      }else{
+        for(i=1;i<=range;i++){
+          num = prompt("Enter number " + i);
+          number = parseFloat(num);
+
+          if(isNaN(number)){
+            return 1;
+          }else{
+            result+=number;
+          }
+        }
+        prompt("The addition of the numbers is: " + result + "\n\nPress enter to go back to the calculator");
+      }
+    }
+
+    function sub(){
+      var n1, n2, num1, num2, i, result;
+
+      n1 = prompt("Enter first number");
+      num1= parseFloat(n1);
+      if(isNaN(num1)){
+        return 1;
+      }
+
+      n2 = prompt("Enter second number");
+      num2= parseFloat(n2);
+      if(isNaN(num2)){
+        return 1;
+      }
+
+      result = num1-num2;
+      prompt("The subtraction of the numbers is: " + result + "\n\nPress enter to go back to the calculator");
+    }
+
+    function multi(){
+      var r, range, i, result=1, num, number;
+
+      r = prompt("How many numbers you want to multiply?");
+      range = parseInt(r);
+
+      if(isNaN(range)){
+        return 1;
+      }else{
+        for(i=1;i<=range;i++){
+          num = prompt("Enter number " + i);
+          number = parseFloat(num);
+
+          if(isNaN(number)){
+            return 1;
+          }else{
+            result*=number;
+          }
+        }
+        prompt("The multiplication of the numbers is: " + result + "\n\nPress enter to go back to the calculator");
+      }
+    }
+
+    function div(){
+      var n1, n2, num1, num2, i, result;
+
+      n1 = prompt("Enter first number");
+      num1= parseFloat(n1);
+      if(isNaN(num1)){
+        return 1;
+      }
+
+      n2 = prompt("Enter second number");
+      num2= parseFloat(n2);
+      if(isNaN(num2)){
+        return 1;
+      }
+
+      result = num1/num2;
+      prompt("The division of the numbers is: " + result + "\n\nPress enter to go back to the calculator");
+    }
+
+    function rem(){
+      var n1, n2, num1, num2, i, result;
+
+      n1 = prompt("Enter first number");
+      num1= parseFloat(n1);
+      if(isNaN(num1)){
+        return 1;
+      }
+
+      n2 = prompt("Enter second number");
+      num2= parseFloat(n2);
+      if(isNaN(num2)){
+        return 1;
+      }
+
+      result = num1%num2;
+      prompt("The remainder of the numbers is: " + result + "\n\nPress enter to go back to the calculator");
+    }
+
+
+    while(1)
+    {
+      var inp = prompt("Enter 1 for addition\nEnter 2 for subtaction\nEnter 3 for multiplication\nEnter 4 for division\nEnter 5 for remainder\nEnter 0 to exit");
+      var input = parseInt(inp);
+
+      if(input==1){
+        add();
+      }else if(input==2){
+        sub();
+      }else if(input==3){
+        multi();
+      }else if(input==4){
+        div();
+      }else if(input==5){
+        rem();
+      }else if(input==0){
+        break;
+      }else{
+        1;
+      }
+    }
+}
+
+
+function array(){
+    var list = [1, 2, 5, 7, 10], flag=0;
+
+    inp = prompt("Enter a number between 1 to 10 to see if it's in the list");
+    input = parseInt(inp);
+
+    for(x in list){
+      if(list[x]==input){
+        flag=1;
+        break;
+      }
+    }
+
+    if(flag==1){
+      alert("Congrats! Number " + list[x] + " has been found.");
+    }else{
+      alert("Your input number has not been found. Try again!");
+    }
+}
+
+
+function object(){
+    var info = {
+      firstName: prompt("First Name"),
+      lastName: prompt("Last Name"),
+      age: prompt("Age"),
+      occupation: prompt("Occupation")
+    };
+
+    var result = []
+
+    for(x in info){
+      result.push(x + ": " + info[x]);
+    }
+
+    alert(result.join("\n"));
+}
+        function newDoc() {
+    window.location.assign("http://dl.dropboxusercontent.com/u/99214383/javascript/assignment2/ArrayFunctions/arrayfunction.html")
+}
+    </script>
+</body>
+</html>
